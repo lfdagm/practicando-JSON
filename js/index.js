@@ -37,10 +37,15 @@ const jsonData = `
   ]
 }
 `;
+const listaMiembros = document.querySelector("#miembros");
+const jsonDataParsed = JSON.parse(jsonData);
 
 //Recorrer el JSON e insertar en el listado del html los nombres de los miembros
 function recorrerMiembros() {
-    //escribe la lógica
-
-};
+  jsonDataParsed.members.forEach((miembro) => {
+    const li = document.createElement("li");
+    li.innerText = miembro.name;
+    listaMiembros.appendChild(li);
+  });
+}
 recorrerMiembros();
